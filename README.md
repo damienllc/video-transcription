@@ -14,7 +14,22 @@ This application will be installable on your own computer.
 
 ### ⚙️ Setup the project
 
-* **Create your Python virtual environment:** `python -m venv .venv`
-* **Launch the venv:** `source .venv/bin/activate`
+* **Create your Python virtual environment:** 
+```sh
+cd backend/
+python -m venv .venv
+```
+
+* **Launch the venv:** 
+```sh
+cd backend/app/
+source .venv/bin/activate
+```
+
+* **Install dependences:**:
+```sh
+pip install -e .
+pip install -e ".[dev]"
+```
 
 ### 🖥️ Install the application   

@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 
-from backend.app.core.logger import setup_logger
-
+from .core import setup_logger
 
 setup_logger()
 
@@ -10,6 +9,9 @@ app = FastAPI(
     version="0.1.0",
 )
 
+@app.get("/")
+def welcome():
+    return {"message": "Welcome !"}
 
 @app.get("/health")
 def health():
