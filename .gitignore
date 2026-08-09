@@ -1,0 +1,28 @@
+# Env dev
+.venv/
+__pycache__/
+*.pyc
+
+.idea/
+.vscode/
+
+# Generated files
+downloads/
+output/
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.webm
+
+models/
+
+*.log
+
+dist/
+build/
+*.spec
+
+*.wav
+*.mp3
+*.mp4
