@@ -14,5 +14,7 @@ This application will be installable on your own computer.
 
 ### ⚙️ Setup the project
 
+* **Create your Python virtual environment:** `python -m venv .venv`
+* **Launch the venv:** `source .venv/bin/activate`
 
-### 🖥️ Install the application
+### 🖥️ Install the application   
