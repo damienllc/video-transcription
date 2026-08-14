@@ -1,5 +1,14 @@
+# Env dev
+.venv/
+__pycache__/
+*.pyc
+
 .idea/
 .vscode/
+
+# Generated files
+data/downloads/*
+data/exports/*
 
 *.wav
 *.mp3

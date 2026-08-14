@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: video-transcriber
+Version: 0.1.0
+Summary: Local video transcription application
+Requires-Python: >=3.11
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: yt-dlp
+Requires-Dist: faster-whisper
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"

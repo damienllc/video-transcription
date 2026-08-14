@@ -1,6 +1,7 @@
 import logging
 
 from faster_whisper import WhisperModel
+from app.models import TranscriptionAnswer
 
 logger = logging.getLogger(__name__)
 
@@ -26,18 +27,36 @@ class Transcriber:
 
         logger.info("Whisper model loaded")
 
-    def transcribe(self, audio_path: str):
+    def transcribe(self, audio_path: str, language: str) -> TranscriptionAnswer:
         logger.info("Starting transcription: %s", audio_path)
 
         try:
-            segments, info = self.model.transcribe(audio_path)
+            segments, info = self.model.transcribe(audio=audio_path, language=language)
+
+            result_segments = []
+
+            for segment in segments:
+                result_segments.append({
+                    "start": segment.start,
+                    "end": segment.end,
+                    "text": segment.text.strip(),
+                })
+
+            text = " ".join(
+                segment["text"]
+                for segment in result_segments
+            )
 
             logger.info(
                 "Transcription completed: language=%s",
                 info.language
             )
 
-            return segments, info
+            return TranscriptionAnswer(
+                language=info.language,
+                text=text,
+                segments=result_segments,
+            )
 
         except Exception:
             logger.exception("Transcription failed")
